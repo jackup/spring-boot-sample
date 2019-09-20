@@ -42,4 +42,12 @@ public class WelcomeController {
         return "welcome"; //view
     }
 
+    @GetMapping("/index")
+    public String index(Model model) {
+        User user = new User();
+        user.setName("Tamer");
+
+        return "index"; //view
+    }
+
 }
