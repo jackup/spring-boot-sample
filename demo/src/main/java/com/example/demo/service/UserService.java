@@ -23,7 +23,4 @@ public class UserService extends BaseService<User, Long>  {
     public void deleteByName(String name) {
         repository.deleteByName(name);
     }
-
-    public BaseRepository<User, Long> findOne() { return repository;
-    }
 }
