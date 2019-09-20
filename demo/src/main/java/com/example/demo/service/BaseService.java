@@ -5,8 +5,12 @@ import com.example.demo.data.repository.BaseRepository;
 
 import javax.transaction.Transactional;
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 public abstract class BaseService<T extends BaseEntity, PK extends Serializable> {
@@ -23,6 +27,7 @@ public abstract class BaseService<T extends BaseEntity, PK extends Serializable>
      * */
     @Transactional
     public T save(T entity) {
+        entity.setId(generateId());
         entity.setCreateDate(new Date());
         return getRepository().save(entity);
     }
@@ -70,4 +75,9 @@ public abstract class BaseService<T extends BaseEntity, PK extends Serializable>
         }
     }
 
+    private Long generateId(){
+        String date = new SimpleDateFormat("yyMMddhhss").format(new Date());
+        int gen = 100000 + new Random().nextInt(899999);
+        return Long.parseLong(date + gen);
+    }
 }

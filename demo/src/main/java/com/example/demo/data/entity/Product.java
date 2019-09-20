@@ -1,15 +1,15 @@
 package com.example.demo.data.entity;
 
+import io.micrometer.core.lang.NonNull;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Product extends BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NonNull
     @Override
     public Long getId() {
         return super.getId();

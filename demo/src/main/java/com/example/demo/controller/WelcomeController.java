@@ -14,8 +14,8 @@ import java.util.List;
 public class WelcomeController {
 
     // inject via application.properties
-    @Value("${welcome.message}")
-    private String message;
+//    @Value("${welcome.message}")
+    private String message="";
 
     private List<String> tasks = Arrays.asList("a", "b", "c", "d", "e", "f", "g");
 

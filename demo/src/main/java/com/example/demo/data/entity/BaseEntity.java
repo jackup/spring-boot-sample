@@ -1,7 +1,9 @@
 package com.example.demo.data.entity;
 
+import io.micrometer.core.lang.NonNull;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,6 +18,9 @@ public abstract class BaseEntity implements Serializable {
     protected Date updateDate;
 
     protected String imageFile;
+
+    public static void save(User user) {
+    }
 
     public Long getId() {
         return id;
@@ -47,5 +52,9 @@ public abstract class BaseEntity implements Serializable {
 
     public void setImageFile(String imageFile) {
         this.imageFile = imageFile;
+    }
+
+    public void setName() {
+
     }
 }

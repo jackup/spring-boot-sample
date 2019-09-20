@@ -6,6 +6,8 @@ import com.example.demo.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserService extends BaseService<User, Long>  {
 
@@ -17,4 +19,11 @@ public class UserService extends BaseService<User, Long>  {
         return repository;
     }
 
+    @Transactional
+    public void deleteByName(String name) {
+        repository.deleteByName(name);
+    }
+
+    public BaseRepository<User, Long> findOne() { return repository;
+    }
 }
